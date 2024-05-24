@@ -1,3 +1,6 @@
+<?php
+    require_once ('inc/header.php');
+?>
 <!DOCTYPE html>
 <html>
 <head>
