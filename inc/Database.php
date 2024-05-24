@@ -64,11 +64,11 @@ class Database
             $check_db_data = $this->conn->query("SELECT `id` FROM `{$this->tablename}` ")->num_rows;
             if($check_db_data <= 0){
                $insert_sql = "INSERT INTO `{$this->tablename}` (`code`, `name`, `description`, `prev_price`, `current_price`, `img_path`) VALUES
-                            ('123456', 'Scholar Pencils', 'This is a sample Product 101 description only', 99, 79, 'upload/1.jpg'),
-                            ('123457', 'Scholar Notebook', 'This is a sample Product 102 description only', 220, 199, 'upload/2.jpg'),
-                            ('123458', 'Scholar Envelope', 'This is a sample Product 103 description only', 22, 20, 'upload/3.jpg'),
-                            ('123459', 'Scholar Highlighters', 'This is a sample Product 104 description only', 0, 149, 'upload/4.jpg'),
-                            ('123450', 'Scholar Folder', 'This is a sample Product 105 description only', 0, 150, 'upload/5.jpg')";
+                            ('123456', 'Scholar Pencils', 'Scholar Pencils offer smooth, consistent lines with an ergonomic design for comfort. Ideal for writing and drawing, they sharpen easily and come in various grades. Perfect for students and professionals.', 99, 79, 'upload/1.png'),
+                            ('123457', 'Scholar Notebook', 'Scholar Notebook is designed for students and professionals, offering high-quality, smooth paper for effortless writing. With a durable cover and a convenient size, its perfect for notes, sketches, and ideas on the go.', 220, 199, 'upload/2.png'),
+                            ('123458', 'Scholar Envelope', 'The Scholar Envelope combines durability and elegance for secure document storage. Perfect for professional and personal use, its ideal for letters, invitations, and important papers.', 22, 20, 'upload/3.png'),
+                            ('123459', 'Scholar Highlighters', 'Scholar Highlighters offer vibrant colors with smooth, non-smudge ink. Designed for precision and comfort, they are perfect for studying, note-taking, and organizing important information.', 0, 149, 'upload/4.png'),
+                            ('123450', 'Scholar Folder', 'The Scholar Folder provides durable, stylish document organization. Ideal for students and professionals, its perfect for keeping papers, reports, and assignments neatly arranged and protected.', 0, 150, 'upload/5.png')";
                 $this->conn->query($insert_sql);
             }
 

@@ -2,32 +2,42 @@
 
 function prodElement($product_details){
     $element = "
-    
-    <div class=\"col-lg-3 col-md-6 col-sm-12 col-sm-6 my-3 rounded-0\">
-                <form action=\"index.php\" method=\"post\">
-                    <div class=\"card shadow rounded-0\">
-                        <div class='position-relative rounded-0'>
-                            <img src=\"{$product_details['img_path']}\" alt=\"Image1\" class=\"img-fluid product-img card-img-top  rounded-0\">
-                        </div>
-                        <div class=\"card-body rounded-0\">
-                            <h5 class=\"card-title\">{$product_details['name']}</h5>
-                            <p class=\"card-text\">
-                                {$product_details['description']}
-                            </p>
-                            <h5>
-                                ".($product_details['prev_price'] > 0 ? "<small><s class=\"text-secondary\">₱ ".(number_format($product_details['prev_price'],2))."</s></small>" : "")."
-                                <span class=\"price\">₱ ".(number_format($product_details['current_price'],2))."</span>
-                            </h5>
+    <style>
+        .product-card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
 
-                            <button type=\"submit\" class=\"btn btn-primary my-3 rounded-0\" name=\"add\"><i class=\"fa fa-cart-plus\"> Add to Cart</i></button>
-                             <input type='hidden' name='product_id' value='{$product_details['id']}'>
-                        </div>
-                    </div>
-                </form>
+        .card {
+            height: 650px; /* Adjust the height as needed */
+        }
+    </style>
+    <div class=\"col-lg-3 col-md-6 col-sm-12 col-sm-6 my-3 rounded-0\">
+        <form action=\"index.php\" method=\"post\">
+            <div class=\"card shadow rounded-0 product-card\">
+                <div class='position-relative rounded-0'>
+                    <img src=\"{$product_details['img_path']}\" alt=\"Image1\" class=\"img-fluid product-img card-img-top  rounded-0\">
+                </div>
+                <div class=\"card-body rounded-0\">
+                    <h5 class=\"card-title\">{$product_details['name']}</h5>
+                    <p class=\"card-text\">
+                        {$product_details['description']}
+                    </p>
+                    <h5>
+                        ".($product_details['prev_price'] > 0 ? "<small><s class=\"text-secondary\">₱ ".(number_format($product_details['prev_price'],2))."</s></small>" : "")."
+                        <span class=\"price\">₱ ".(number_format($product_details['current_price'],2))."</span>
+                    </h5>
+                    <button type=\"submit\" class=\"btn btn-primary my-3 rounded-0\" name=\"add\"><i class=\"fa fa-cart-plus\"> Add to Cart</i></button>
+                    <input type='hidden' name='product_id' value='{$product_details['id']}'>
+                </div>
             </div>
+        </form>
+    </div>
     ";
     echo $element;
 }
+
 
 function cartItems($product_details){
     $element = "

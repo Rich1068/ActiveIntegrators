@@ -56,6 +56,3 @@ img{
     object-position: center center;
     transition: transform .3s ease-in-out;
 }
-.prod-img-cart:hover{
-    transform:scale(1.2);
-}
