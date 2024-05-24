@@ -55,21 +55,26 @@ if (isset($_POST['add'])){
 
 
 <?php require_once ("inc/header.php"); ?>
-<div class="container">
-        <div class="row text-center py-5">
-            <?php
-                $result = $database->getData();
-                if($result){
-                    while ($row = $result->fetch_assoc()){
-                        prodElement($row);
-                    }
-                }else{
-                    echo "<h4 class='text-center'>No Product Listed Yet<h4>";
-                }
-            ?>
-        </div>
+
+<!-- Add banner container after header -->
+<div class="banner-container text-center" style="margin: 0 auto; max-width: 800px; padding: 20px 0;">
+    <img src="upload/activeintegrator.jpg" alt="Banner Image" class="img-fluid">
 </div>
 
+<div class="container">
+    <div class="row text-center py-5">
+        <?php
+            $result = $database->getData();
+            if($result){
+                while ($row = $result->fetch_assoc()){
+                    prodElement($row);
+                }
+            }else{
+                echo "<h4 class='text-center'>No Product Listed Yet<h4>";
+            }
+        ?>
+    </div>
+</div>
 
 <?php var_dump($_SESSION['cart']) ?>
 
