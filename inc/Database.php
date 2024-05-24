@@ -64,11 +64,11 @@ class Database
             $check_db_data = $this->conn->query("SELECT `id` FROM `{$this->tablename}` ")->num_rows;
             if($check_db_data <= 0){
                $insert_sql = "INSERT INTO `{$this->tablename}` (`code`, `name`, `description`, `prev_price`, `current_price`, `img_path`) VALUES
-                            ('123456', 'Product 101', 'This is a sample Product 101 description only', 0, 145.23, 'upload/1.jpg'),
-                            ('123457', 'Product 102', 'This is a sample Product 102 description only', 520, 399, 'upload/2.jpg'),
-                            ('123458', 'Product 103', 'This is a sample Product 103 description only', 0, 1299, 'upload/3.jpg'),
-                            ('123459', 'Product 104', 'This is a sample Product 104 description only', 799, 599, 'upload/4.jpg'),
-                            ('123450', 'Product 105', 'This is a sample Product 105 description only', 1999, 1599, 'upload/5.jpg')";
+                            ('123456', 'Scholar Pencils', 'This is a sample Product 101 description only', 99, 79, 'upload/1.jpg'),
+                            ('123457', 'Scholar Notebook', 'This is a sample Product 102 description only', 220, 199, 'upload/2.jpg'),
+                            ('123458', 'Scholar Envelope', 'This is a sample Product 103 description only', 22, 20, 'upload/3.jpg'),
+                            ('123459', 'Scholar Highlighters', 'This is a sample Product 104 description only', 0, 149, 'upload/4.jpg'),
+                            ('123450', 'Scholar Folder', 'This is a sample Product 105 description only', 0, 150, 'upload/5.jpg')";
                 $this->conn->query($insert_sql);
             }
 

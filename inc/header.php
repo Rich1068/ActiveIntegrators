@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a href="index.php" class="navbar-brand">
             <h3 class="px-5">
-                <i class="fas fa-boxes"></i> Adv Shopping Cart
+                <img src="upload/1.jpg" width="100" height="100"></img> Scholar's Secret
             </h3>
         </a>
         <button class="navbar-toggler"

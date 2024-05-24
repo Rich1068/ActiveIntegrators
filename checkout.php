@@ -25,7 +25,7 @@ while ($row = $result->fetch_assoc()) {
     $line_items[] = [
         "quantity" => $quantity,
         "price_data" => [
-            "currency" => "usd",
+            "currency" => "php",
             "unit_amount" => $unit_amount,
             "product_data" => [
                 "name" => $row['name']
@@ -41,7 +41,7 @@ while ($row = $result->fetch_assoc()) {
 $checkout_session = \Stripe\Checkout\Session::create([
     "mode" => "payment",
     "success_url" => "http://localhost/stripe/ActiveIntegrators/success.php",
-    "line_items" => $line_items
+    "line_items" => $line_items,
 ]);
 
 

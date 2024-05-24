@@ -15,8 +15,8 @@ function prodElement($product_details){
                                 {$product_details['description']}
                             </p>
                             <h5>
-                                ".($product_details['prev_price'] > 0 ? "<small><s class=\"text-secondary\">$ ".(number_format($product_details['prev_price'],2))."</s></small>" : "")."
-                                <span class=\"price\">$ ".(number_format($product_details['current_price'],2))."</span>
+                                ".($product_details['prev_price'] > 0 ? "<small><s class=\"text-secondary\">₱ ".(number_format($product_details['prev_price'],2))."</s></small>" : "")."
+                                <span class=\"price\">₱ ".(number_format($product_details['current_price'],2))."</span>
                             </h5>
 
                             <button type=\"submit\" class=\"btn btn-primary my-3 rounded-0\" name=\"add\"><i class=\"fa fa-cart-plus\"> Add to Cart</i></button>
@@ -43,7 +43,7 @@ function cartItems($product_details){
                             <div class=\"col-md-6 py-3\">
                                 <h5 class=\"pt-2\">{$product_details['name']}</h5>
                                 <small class=\"text-secondary\">Description: {$product_details['description']}</small>
-                                <h5 class=\"pt-2\">$ {$product_details['current_price']}</h5>
+                                <h5 class=\"pt-2\">₱ {$product_details['current_price']}</h5>
                                 <button onclick=\"if(confirm('Are you sure to remove this item from list?') === true)location.replace('cart.php?action=removeItem&id={$product_details['id']}');\" type=\"button\" class=\"btn btn-outline-danger btn-sm rounded-0 mx-2\" name=\"remove\"><i class=\"fas fa-trash\"></i> Remove Item</button>
                             </div>
                             <div class=\"col-md-3 py-5\">

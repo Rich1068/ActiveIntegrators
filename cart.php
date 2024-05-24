@@ -97,10 +97,10 @@ if(isset($_GET['action']) && $_GET['action'] == "update_qty"){
                         <h6>Amount Payable</h6>
                     </div>
                     <div class="col-md-6">
-                        <h6>$<?php echo number_format($total, 2); ?></h6>
+                        <h6>₱<?php echo number_format($total, 2); ?></h6>
                         <h6 class="text-success">FREE</h6>
                         <hr>
-                        <h6>$<?php
+                        <h6>₱<?php
                             echo number_format($total, 2);
                             ?></h6>
                         <h6>
@@ -115,8 +115,6 @@ if(isset($_GET['action']) && $_GET['action'] == "update_qty"){
         </div>
     </div>
 </div>
-
-<?php var_dump($_SESSION['cart']) ?>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
