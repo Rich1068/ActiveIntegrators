@@ -49,6 +49,8 @@
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-9Z5oVbpeVcMZ2j8KXM4MPfLWc/ga9K11ZnoL7vzKnHmhNebPTpx+ylJwJ0HGb8+6qWxM1lC9xJ46E1byIyH74w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    
+    
     <!-- Custom Styles -->
     <style>
         
@@ -93,7 +95,7 @@
     max-width: none;
     text-align: center;
     align-items: center;
-    padding-top: -5;
+    padding-top: -;
 }
 
 .product-container {
