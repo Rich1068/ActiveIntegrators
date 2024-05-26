@@ -78,8 +78,7 @@ if (isset($_GET['action']) && $_GET['action'] == "update_qty") {
             background: linear-gradient(to bottom, #220132, #d305b2, #d305b2);
             font-family: "Times New Roman", Times, serif;
             color: #fff;
-            margin: 0;
-            padding: 0;
+      
             background-size: cover;
         }
 
@@ -90,15 +89,17 @@ if (isset($_GET['action']) && $_GET['action'] == "update_qty") {
         .container {
             width: 100%;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0px;
             max-width: 1200px;
+            margin-bottom: 200px;
         }
 
         .cart-section,
         .checkout-section {
-            padding: 20px;
-            border-radius: 5px;
+            padding: 40px;
+            border-radius: 20px;
             box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
         }
 
         .cart-section {
@@ -214,8 +215,18 @@ if (isset($_GET['action']) && $_GET['action'] == "update_qty") {
 
     <?php require_once("inc/header.php"); ?>
 
-    <div class="container">
+    <div class="container mt-5">
         <div class="row">
+            <div class="col-md-12">
+                <div class="text-center">
+                    <h1 class="text-uppercase" style="color: #fff;"><span style="border-bottom: 2px solid #fff;">THANK YOU FOR SHOPPING WITH US</span></h1>
+                    <p class="text-uppercase mt-3" style="color: #fff;">Please Proceed To Check Out!</p>
+                    <H1><BR></H1>
+                    <hr class="my-4" style="border-top: 2px solid #fff;">
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
             <div class="col-md-8">
                 <div class="cart-section">
                     <h2>My Shopping Cart</h2>
@@ -325,4 +336,4 @@ if (isset($_GET['action']) && $_GET['action'] == "update_qty") {
         }
     });
 </script>
-`
+</html>
