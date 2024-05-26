@@ -95,7 +95,7 @@
     max-width: none;
     text-align: center;
     align-items: center;
-    padding-top: -;
+    padding-top: -5;
 }
 
 .product-container {
