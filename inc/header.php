@@ -1,11 +1,23 @@
-<header id="header" style="background: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0)); padding: 10px 0;">
+<header id="header" style="background: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0)); padding: 10px 0; position: relative;">
     <style>
+        #header::after {
+            content: '';
+            position: absolute;
+            bottom: 35px; /* Position slightly above the bottom */
+            left: 10px; /* Add margin on the left */
+            right: 10px; /* Add margin on the right */
+            height: 2px; /* Line thickness */
+            background-color: white; /* Line color */
+        }
+
         #header .navbar-brand h3,
         #header .cart {
             font-family: 'Times New Roman', Times, serif;
         }
 
-        .cart-container {
+        .cart-container,
+        .about-container,
+        .main-shop-container {
             display: flex;
             align-items: center;
             border-radius: 5px;
@@ -14,9 +26,12 @@
             text-align: center;
             margin-right: 50px; /* Add margin to the right to separate from the right edge */
             box-shadow: 0 0 0 2px rgba(255, 255, 255, 1); /* Make the outline skinnier and pure white */
+            transition: color 0.3s ease; /* Smooth transition for color change */
         }
 
-        .cart-icon {
+        .cart-icon,
+        .about-icon,
+        .main-shop-icon {
             position: relative;
             display: inline-block;
         }
@@ -36,12 +51,18 @@
             font-weight: normal; /* Ensure normal font weight */
         }
 
-        .view-cart-text {
+        .view-cart-text,
+        .about-text,
+        .main-shop-text {
             margin-right: 10px;
             color: white;
+            display: block;
+            margin-bottom: 5px; /* Add space below the span */
         }
 
-        .cart-icon i {
+        .cart-icon i,
+        .about-icon i,
+        .main-shop-icon i {
             border: none;
             outline: none;
         }
@@ -57,6 +78,24 @@
             margin-left: auto; /* Push the right container to the right edge */
             flex: 1; /* Take up remaining space */
             text-align: right; /* Align content to the right */
+        }
+
+        .cart-container:hover,
+        .about-container:hover,
+        .main-shop-container:hover {
+            color: yellow; /* Change text color to yellow on hover */
+        }
+
+        .nav-item.nav-link.active .main-shop-container,
+        .nav-item.nav-link.active .cart-container,
+        .nav-item.nav-link.active .about-container {
+            color: yellow; /* Change text color to yellow for active page */
+        }
+
+        .nav-item.nav-link.active .main-shop-icon i,
+        .nav-item.nav-link.active .cart-icon i,
+        .nav-item.nav-link.active .about-icon i {
+            color: yellow; /* Change icon color to yellow for active page */
         }
     </style>
                 
@@ -80,7 +119,15 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="mr-auto"></div>
             <div class="navbar-nav">
-                <a href="cart.php" class="nav-item nav-link active">
+                <a href="index.php" class="nav-item nav-link <?php echo ($currentPage == 'index') ? 'active' : ''; ?>">
+                    <div class="main-shop-container container-right" style="border-color: white;">
+                        <span class="main-shop-text">Main Shop</span>
+                        <div class="main-shop-icon">
+                            <i class="fas fa-store"></i>
+                        </div>
+                    </div>
+                </a>
+                <a href="cart.php" class="nav-item nav-link <?php echo ($currentPage == 'cart') ? 'active' : ''; ?>">
                     <div class="cart-container container-right" style="border-color: white;">
                         <span class="view-cart-text">View My Cart</span>
                         <div class="cart-icon">
@@ -98,6 +145,14 @@
                                 }
                                 ?>
                             </span>
+                        </div>
+                    </div>
+                </a>
+                <a href="about_us.php" class="nav-item nav-link <?php echo ($currentPage == 'about') ? 'active' : ''; ?>">
+                    <div class="about-container container-right" style="border-color: white;">
+                        <span class="about-text">About Us</span>
+                        <div class="about-icon">
+                            <i class="fas fa-info-circle"></i>
                         </div>
                     </div>
                 </a>
