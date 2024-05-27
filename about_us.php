@@ -1,36 +1,28 @@
-    <?php
+<?php
+session_start();
 
-    session_start();
+require_once('inc/Database.php');
+require_once('inc/dynamic_elements.php');
 
-    require_once ('inc/Database.php');
-    require_once ('inc/dynamic_elements.php');
+// create instance of Database class
+$database = new Database();
 
-
-    // create instance of Database class
-    $database = new Database();
-
-    if (isset($_POST['add'])){
-        //print_r($_POST['product_id']);
-        if(isset($_SESSION['cart'])){
-
-            if(in_array($_POST['product_id'], array_keys($_SESSION['cart']))){
-                $_SESSION['cart'][$_POST['product_id']] += 1;
-                header("location: ./");
-            }else{
-                // Create new session variable
-                $_SESSION['cart'][$_POST['product_id']] = 1;
-                // print_r($_SESSION['cart']);
-                header("location: ./");
-            }
-
-        }else{
+if (isset($_POST['add'])) {
+    //print_r($_POST['product_id']);
+    if (isset($_SESSION['cart'])) {
+        if (in_array($_POST['product_id'], array_keys($_SESSION['cart']))) {
+            $_SESSION['cart'][$_POST['product_id']] += 1;
+        } else {
             // Create new session variable
             $_SESSION['cart'][$_POST['product_id']] = 1;
-            // print_r($_SESSION['cart']);
-            header("location: ./");
         }
+    } else {
+        // Create new session variable
+        $_SESSION['cart'][$_POST['product_id']] = 1;
     }
-
+    header("Location: ./");
+    exit(); // Add exit to prevent further execution
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,7 +36,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
     <!-- Custom Styles -->
     <style>
-        /* Add custom styles here */
         body {
             background: linear-gradient(to bottom, #220132, #d305b2, #d305b2);
             font-family: "Times New Roman", Times, serif;
@@ -115,35 +106,31 @@
             font-family: 'Times New Roman', Times, serif;
         }
 
-        /* Style for team container */
         .team-container {
-    background-color: #fff; 
-    border-radius: 10px;
-    text-align: left;
-}
+            background-color: #fff; 
+            border-radius: 10px;
+            text-align: left;
+        }
 
+        .team-image {
+            margin-bottom: 20px; 
+        }
 
-.team-image {
-    margin-bottom: 20px; 
-}
+        .team-image img {
+            max-width: 600px; 
+            height: auto; 
+            display: block; 
+            margin: 0 auto; 
+        }
 
-/* Limit the size of the team image */
-.team-image img {
-    max-width: 600px; 
-    height: auto; 
-    display: block; 
-    margin: 0 auto; 
-}
-
-/* Style for team details */
-.team-details {
-    text-align: center; /* Center text */
-}
+        .team-details {
+            text-align: center; 
+        }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <?php require_once ("inc/header.php"); ?>
+    <?php require_once("inc/header.php"); ?>
 
     <!-- Main Content -->
     <div class="container">
