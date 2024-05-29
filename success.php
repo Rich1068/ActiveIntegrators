@@ -1,6 +1,7 @@
 <?php
     require_once ("inc/dynamic_elements.php");
     require_once ('inc/header.php');
+    session_unset();
 ?>
 <!doctype html>
 <html lang="en">

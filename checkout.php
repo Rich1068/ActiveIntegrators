@@ -38,15 +38,14 @@ while ($row = $result->fetch_assoc()) {
     
     // Calculate the total
     $total += $unit_amount * $quantity;
-
-    $description .= "
-    <div style='display: flex; justify-content: space-between; padding: 5px 0;'>
-        <span>{$quantity}x {$row['name']}</span>
-        <span> ₱ {$unit_total}</span>
+    
+    $Cart .= "<div style='display: flex; justify-content: space-between; font-size:18px';>
+    <div>{$quantity}x {$row['name']}</div>
+    <div>₱ {$unit_total}</div>
     </div>";
 }
-$desc1 .= "<div style='font-size: 18px; margin: 20px 0;'>
-<h3 style='color: #4d004d; border-bottom: 1px solid #4d004d; padding-bottom: 5px; margin: 0;'>PURCHASE SUMMARY</h3>";
+
+$desc1 .= "<div style='font-size: 22px;'><fieldset style='border: 0; border-top: 1px solid black;'><legend><b>PURCHASE SUMMARY</b></legend></fieldset></div>";
 
 $checkout_session = \Stripe\Checkout\Session::create([
     "mode" => "payment",
@@ -54,7 +53,7 @@ $checkout_session = \Stripe\Checkout\Session::create([
     "cancel_url" => "http://localhost/stripe/ActiveIntegrators/cart.php",
     "line_items" => $line_items,
     "payment_intent_data" => [
-        "description" =>$desc1 . $description,
+        "description" =>$desc1 . $Cart ,
     ]
 ]);
 
