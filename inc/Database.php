@@ -13,11 +13,11 @@ class Database
 
         // class constructor
     public function __construct(
-        $dbname = "adv_shopping_cart",
+        $dbname = "id22228300_scholarsecrets",
         $tablename = "products",
         $servername = "localhost",
-        $username = "root",
-        $password = ""
+        $username = "id22228300_root",
+        $password = "@Dmin123"
     )
     {
       $this->dbname = $dbname;

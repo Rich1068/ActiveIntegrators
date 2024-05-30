@@ -48,8 +48,8 @@ $desc1 .= "<div style='font-size: 22px;'><fieldset style='border: 0; border-top:
 
 $checkout_session = \Stripe\Checkout\Session::create([
     "mode" => "payment",
-    "success_url" => "http://localhost/stripe/ActiveIntegrators/success.php",
-    "cancel_url" => "http://localhost/stripe/ActiveIntegrators/cart.php",
+    "success_url" => "https://scholarssecret.000webhostapp.com/success.php",
+    "cancel_url" => "https://scholarssecret.000webhostapp.com/cart.php",
     "line_items" => $line_items,
     "payment_intent_data" => [
         "metadata" => [
