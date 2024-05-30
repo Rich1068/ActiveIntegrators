@@ -35,203 +35,354 @@ if (isset($_POST['add'])){
 
 <!doctype html>
 <html lang="en">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" />
 <head>
-<meta charset="UTF-8">
-<meta name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Scholar's Secret</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Scholar's Secret</title>
+    <link rel="stylesheet" href="style.css">
+ <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+ 
+    <!-- Custom Styles -->
 
-<!-- Bootstrap CDN -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        
+        body {
+            background-color: #2c2c2c;
+            color: #ffffff;
+            font-family: "Times New Roman", Times, serif;
 
-<!-- Font Awesome CDN -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-9Z5oVbpeVcMZ2j8KXM4MPfLWc/ga9K11ZnoL7vzKnHmhNebPTpx+ylJwJ0HGb8+6qWxM1lC9xJ46E1byIyH74w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        }
+
+        .header-text {
+            padding-top: 30px;
+            text-align: center;
+            margin: 20px 0;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        .header-text2 {
+            padding-top: 40px;
+            text-align: center;
+            margin: 20px 0;
+            font-size: 2.5em;
+            font-style: italic;
+            color: #f0e68c;
+            padding-bottom: 40px;
+        }
 
 
 
-<!-- Custom Styles -->
-<style>
-    
 
-    
-    body {
-background: linear-gradient(to bottom, #220132, #d305b2, #d305b2);
-position: relative;
-font-family: "Times New Roman", Times, serif;
+        .quote {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 1.5em;
+            color: #f0e68c;
+            font-style: italic;
+      
+        }
+
+
+.shop-container {
+    background-color: #1a1a1a;
+
+    padding: 40px;
+
 }
 
+
+
+        .shop-items {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .product-container {
+            border: 2px solid #f0e68c;;
+            background-color: #4f4f4f; 
+            border-radius: 13px;
+            padding: 18px;
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+            color: #ffffff;
+            height: 575px; 
+            width: 300px;
+            position: relative;
+            text-align: left;
+            transition: transform 0.3s;
+        }
+
+        .product-container h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .product-container p {
+            font-size: 14px;
+        }
+
+        .product-image {
+            max-width: 100%;
+            max-height: 200px;
+            height: auto;
+
+            margin: 0 auto 10px;
+            border-radius: 10px
+        }
+
+        .add-to-cart-btn {
+            padding-top: 10px;
+            background-color: #FFFF00;
+            border: none;
+            color: #000000;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: auto;
+            cursor: pointer;
+            border-radius: 60px;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+           
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #000000;
+            color: YELLOW;
+        }
+
+        .description-divider {
+            padding-top: 50px;
+            width: 100%;
+            border-bottom: 2px solid #f0e68c;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .fas {
+            margin-right: 5px;
+        }
+
+
+
+
 .banner-container {
-position: fixed;
-top: 0;
-right: 200px;
-width: 40%;
-height: 100vh;
-padding: -10px;
-padding-top: 40px;
-text-align: center;
-align-items: right;
-z-index: -1;
+    background-color: #1a1a1a; 
+    padding: 200px; 
+    margin-bottom: 80px; 
+    max-width: 1600px;
+    margin: 0 auto;
+    position: relative;
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.5); 
+    border-radius: 20px; 
+    overflow: hidden; 
+}
+
+.banner-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 20%; /* Covering the whole right side */
+    background-image: url('upload/Banner1.JPG'); /* Image URL from the upload folder */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center right 20%; /* Adjust background position */
+    border-top-right-radius: 20px; /* Apply border-radius */
 }
 
 .banner-text {
-position: fixed;
-padding-top: 450px;
-right: 550px;
-font-family: "Times New Roman", Times, serif;
-font-size: 70px;
-color: white;
-text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    color: #ffff99; /* Light yellow color */
+    font-size: 80px; /* Increase font size */
+    font-family: "Times New Roman", Times, serif; 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    line-height: 1.2; 
+    position: absolute;
+    top: 50%;
+    left: 10%; /* Adjust left position */
+    transform: translateY(-50%);
 }
 
-.banner-container img {
-width: 115%;
-height: AUTO;
-opacity: 0.9;
+.banner-text h1 {
+    color: white; /* Change h1 color to white */
+    margin-top: 0;
 }
 
-.container {
-max-width: none;
-text-align: center;
-align-items: center;
-padding-top: -5;
+.banner-text p {
+    color: #ffff99;
+    font-size: 24px;
+    font-style: italic;
 }
 
-.product-container {
-background-color: #ffffff;
-border-radius: 13px;
-padding: 18px;
-margin-bottom: 20px;
-right: -60px;
-box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-color: #333;
-height: 400px;
-width: 400px;
-max-width: 100%;
-overflow: hidden;
-position: relative;
+
+
+.banner-image2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 20%; 
+    background-image: url('upload/Banner2.JPG'); /* Image URL from the upload folder */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center left 20%; /* Adjust background position */
+    border-top-right-radius: 0px; /* Apply border-radius */
 }
 
-.product-container h3 {
-margin-top: 0;
-margin-bottom: 5px;
-font-size: 14px;
-font-weight: bold;
+.banner-text2 {
+
+    color: #ffff99; /* Light yellow color */
+    font-size: 80px; /* Increase font size */
+    font-family: "Times New Roman", Times, serif; /* Apply font family */
+    text-transform: uppercase; /* Convert text to uppercase */
+    letter-spacing: 2px; /* Add letter spacing */
+    line-height: 1.2; /* Adjust line height */
+    position: absolute;
+    top: 50%;
+    right: 30%; /* Adjust left position */
+    transform: translateY(-50%);
 }
 
-.product-container p {
-margin-bottom: 5px;
-max-height: calc(50% - 20px);
-overflow: hidden;
-font-size: 12px;
+.banner-text2 h1 {
+    color: white; /* Change h1 color to white */
+    margin-top: 0;
 }
 
-.product-image {
-max-width: 100%;
-max-height: calc(50% - 20px);
-height: auto;
-display: block;
-margin: 0 auto 10px;
+.banner-text2 p {
+    color: #ffff99;
+    font-size: 24px;
+    font-style: italic;
 }
 
-.add-to-cart-btn {
-background-color: #301934;
-border: none;
-color: white;
-padding: 8px 16px;
-text-align: center;
-text-decoration: none;
-display: inline-block;
-font-size: 14px;
-margin: auto;
-cursor: pointer;
-border-radius: 8px;
-position: absolute;
-bottom: 20px;
-left: 50%;
-transform: translateX(-50%);
+
+.banner-line-text2 {
+
+    padding: 30px 0; 
+
+}
+.banner-line-text {
+
+padding: 20px 0; 
+
 }
 
-.add-to-cart-btn:hover {
-background-color: #FFFF00;
-color: #000000;
+
+
+.banner-line-text .fas {
+    font-size: 24px; 
+    color: #f0e68c;
+}
+.bannerbottom {
+    background-image: url('upload/BottomBanner1.png');
+    background-size: contain; 
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%; 
+    height: 500px; 
 }
 
-.description-divider {
-width: 100%;
-border-bottom: 1px solid #ccc;
-margin-bottom: 10px;
-}
-
-.fas {
-margin-right: 5px;
-}
-</style>
+.contact-us {
+            font-size: 20px;
+            color: white; 
+            background-color: black; 
+            padding: 10px; 
+        
+        }
+        .contact-us .email {
+            color: yellow; /* Light yellow color for the email */
+        }
+    </style>
 </head>
 <body>
-<!-- Add banner container before header -->
-<div class="banner-container">
-<img src="upload/GRADSTUDENT.png" alt="Banner Image">
-</div>
-<div class="banner-text">
-FUEL<br>
-YOUR<br>
-LEARNING<br>
-EXPERIENCE
-</div>
-
 
 <?php require_once ("inc/header.php"); ?>
 
-<div class="container">
-<div class="row">
-    <!-- Left Section -->
-    <div class="col-md-5">
-        <div class="container">
-            <div class="row">
-                <?php
-                $result = $database->getData();
-                if($result){
-                    while ($row = $result->fetch_assoc()){
-                        ?>
-                       <div class="col-md-6">
-<div class="product-container">
-    <img src="<?php echo $row['img_path']; ?>" alt="<?php echo $row['name']; ?>" class="product-image">
-    <h3><?php echo $row['name']; ?></h3> <!-- Product name added below the image -->
-    <p><?php echo $row['description']; ?></p>
-    <!-- Description Divider -->
-    <div class="description-divider"></div>
-    <p>Price: $<?php echo $row['current_price']; ?></p>
-    <!-- Add to Cart button with form -->
-    <form method="post">
-        <input type="hidden" name="product_id" value="<?php echo $row['id']; ?>">
-        <button type="submit" class="add-to-cart-btn" name="add">
-            <i class="fas fa-shopping-cart"></i> Add to Cart
-        </button>
-    </form>
+<div class="header-text">Welcome to Scholar's Secret</div>
+<div class="quote">"Fuel your learning experience with the best resources."</div>
+
+<div class="banner-container banner-container-1">
+    <div class="banner-image2"></div>
+    <div class="banner-text2">
+        <h1>Explore Scholar's Secrets</h1>
+        <p>Unlock the knowledge you seek with us.</p>
+    </div>
 </div>
+<div class="banner-line-text">
+ 
+    <span></span>
+ 
 </div>
-                        <?php
-                    }
-                } else {
-                    echo "<h4 class='text-center'>No Product Listed Yet</h4>";
-                }
+
+
+<div class="banner-container">
+    <div class="banner-text">
+        <h1>Boost Your Creativity</h1>
+        <p>Discover the best resources for your learning journey.</p>
+    </div>
+    <div class="banner-image"></div>
+</div>
+<div class="header-text2">Shop Now Here At Scholar's Secret!</div>
+
+
+
+<!-- Shop Items Container -->
+<div class="shop-container">
+    <div class="shop-items">
+        <?php
+        $result = $database->getData();
+        if($result){
+            while ($row = $result->fetch_assoc()){
                 ?>
-            </div>
-        </div>
+                <div class="product-container">
+                    <img src="<?php echo $row['img_path']; ?>" alt="<?php echo $row['name']; ?>" class="product-image">
+                    <h3><?php echo $row['name']; ?></h3>
+                    <p><?php echo $row['description']; ?></p>
+                    <div class="description-divider"></div>
+                    <p>Price: ₱<?php echo $row['current_price']; ?></p>
+                    <form method="post">
+                        <input type="hidden" name="product_id" value="<?php echo $row['id']; ?>">
+                        <button type="submit" class="add-to-cart-btn" name="add">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                    </form>
+                </div>
+                <?php
+            }
+        } else {
+            echo "<h4 class='text-center'>No Product Listed Yet</h4>";
+        }
+        ?>
+
+<div class="description-divider"></div>
+    </div>
+    <div class="banner-line-text2">
+ 
+    <span></span></div>
+    <div class="bannerbottom"></div>
+</div>
+
+<div class="contact-us">
+        Contact Us At <span class="email">skolarsekrets@gmail.com</span>
     </div>
 
-    <!-- Right Section (Empty for now) -->
-    <div class="col-md-4">
-        <!-- Content for the right section -->
-    </div>
-</div>
-</div>
 
 
-<!-- Font Awesome CDN -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js" integrity="sha512-YaK5xUqy+VYp15mTOqUHq5LTL7N0FifMhwHffZuG5DpzkF/n3MuzsEjmDhxj1gqvW3bB46WhuAqLhP0dFX3LOg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
