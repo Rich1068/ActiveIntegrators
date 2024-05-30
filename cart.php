@@ -1,7 +1,5 @@
 <?php
-
-session_start();
-
+require_once("inc/header.php"); 
 require_once("inc/Database.php");
 
 $db = new Database();
@@ -316,8 +314,6 @@ padding: 30px 0;
 </head>
 
 <body>
-
-    <?php require_once("inc/header.php"); ?>
 
     <div class="banner-line-text2">
  

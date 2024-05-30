@@ -1,13 +1,13 @@
-<header id="header" style="background: #1a1a1a; padding: 5px 10px; position: relative;">
+<?php session_start() ?>
+<header id="header" style="background: #1a1a1a; padding: 5px 10px; width:100%">
     <link rel="stylesheet" href="style.css">
     <style>
     #header {
         background: #1a1a1a;
         padding: 5px 10px 0; /* Adjusted padding */
-        position: relative;
+        position: fixed; top: 0; z-index: 1000;
         border-bottom: 2px solid rgba(255, 255, 0, 0.5); /* Added yellow bottom border */
     }
-
     .cart-container,
     .about-container,
     .main-shop-container {
@@ -95,7 +95,7 @@
     }
 </style>
 
-<nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <a href="index.php" class="navbar-brand">
             <h3 class="px-5 container-left">
                 <img src="upload/Logo.png" width="100" height="100" style="background: transparent;"> Scholar's Secret
@@ -112,19 +112,17 @@
                         </div>
                     </div>
                 </a>
-                <a href="cart.php" class="nav-item nav-link <?php echo ($currentPage == 'cart') ? 'active' : ''; ?>">
+                <a href="cart.php" class="nav-item nav-link">
                     <div class="cart-container container-right">
                         <span class="view-cart-text">View My Cart</span>
                         <div class="cart-icon">
                             <i class="fas fa-shopping-cart"></i>
                             <span id="cart_count" class="text-light bg-danger rounded-circle">
                                 <?php
-                                if (isset($_SESSION['cart'])){
-                                    $count = 0;
-                                    foreach($_SESSION['cart'] as $v){
-                                        $count += $v;
-                                    }
-                                    echo $count;
+                                // Display cart count from session
+                                if (isset($_SESSION['cart'])) {
+                                    $cart_count = array_sum($_SESSION['cart']);
+                                    echo $cart_count;
                                 } else {
                                     echo "0";
                                 }

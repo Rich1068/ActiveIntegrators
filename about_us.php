@@ -1,25 +1,6 @@
 <?php
-
     require_once ('inc/Database.php');
     require_once ('inc/dynamic_elements.php');
-
-
-if (isset($_POST['add'])) {
-    //print_r($_POST['product_id']);
-    if (isset($_SESSION['cart'])) {
-        if (in_array($_POST['product_id'], array_keys($_SESSION['cart']))) {
-            $_SESSION['cart'][$_POST['product_id']] += 1;
-        } else {
-            // Create new session variable
-            $_SESSION['cart'][$_POST['product_id']] = 1;
-        }
-    } else {
-        // Create new session variable
-        $_SESSION['cart'][$_POST['product_id']] = 1;
-    }
-    header("Location: ./");
-    exit(); // Add exit to prevent further execution
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">

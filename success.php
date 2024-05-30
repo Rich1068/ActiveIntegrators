@@ -1,6 +1,7 @@
 <?php
     require_once ("inc/dynamic_elements.php");
     require_once ('inc/header.php');
+    session_unset();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,7 +62,7 @@
     <h1>Thank you for purchasing!</h1>
     <p>We appreciate your support for education and our mission to promote learning for all. Your contribution helps us make a difference in the lives of many.</p>
     <div class="divider"></div>
-    <div class="main-shop-container container-right" onclick="window.location.href='http://localhost/ScholarSecret/index.php'">
+    <div class="main-shop-container container-right" onclick="window.location.href='index.php'">
     <div class="main-shop-container container-right" style="display: flex; align-items: center; justify-content: center;">
     <div class="main-shop-container container-right" style="display: flex; align-items: center; justify-content: center;">
     <div class="main-shop-container container-right" style="display: flex; align-items: center; justify-content: center;">

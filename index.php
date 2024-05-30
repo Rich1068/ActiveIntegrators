@@ -1,7 +1,5 @@
 <?php
-
-session_start();
-
+require_once ("inc/header.php");
 require_once ('inc/Database.php');
 require_once ('inc/dynamic_elements.php');
 
@@ -9,28 +7,21 @@ require_once ('inc/dynamic_elements.php');
 // create instance of Database class
 $database = new Database();
 
-if (isset($_POST['add'])){
-    //print_r($_POST['product_id']);
-    if(isset($_SESSION['cart'])){
 
-        if(in_array($_POST['product_id'], array_keys($_SESSION['cart']))){
+if (isset($_POST['add'])) {
+    if (isset($_SESSION['cart'])) {
+        if (in_array($_POST['product_id'], array_keys($_SESSION['cart']))) {
             $_SESSION['cart'][$_POST['product_id']] += 1;
-            header("location: ./");
-        }else{
-            // Create new session variable
+        } else {
             $_SESSION['cart'][$_POST['product_id']] = 1;
-            // print_r($_SESSION['cart']);
-            header("location: ./");
         }
-
-    }else{
-        // Create new session variable
+    } else {
         $_SESSION['cart'][$_POST['product_id']] = 1;
-        // print_r($_SESSION['cart']);
-        header("location: ./");
     }
-}
 
+    // Redirect to the same page
+    header('Location: ' . $_SERVER['PHP_SELF']);
+}
 ?>
 
 <!doctype html>
@@ -55,6 +46,7 @@ if (isset($_POST['add'])){
             background-color: #2c2c2c;
             color: #ffffff;
             font-family: "Times New Roman", Times, serif;
+
 
         }
 
@@ -189,6 +181,7 @@ if (isset($_POST['add'])){
     box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.5); 
     border-radius: 20px; 
     overflow: hidden; 
+    margin-top:100px;
 }
 
 .banner-image {
@@ -309,7 +302,7 @@ padding: 20px 0;
 </head>
 <body>
 
-<?php require_once ("inc/header.php"); ?>
+
 
 <div class="header-text">Welcome to Scholar's Secret</div>
 <div class="quote">"Fuel your learning experience with the best resources."</div>
@@ -353,12 +346,18 @@ padding: 20px 0;
                     <p><?php echo $row['description']; ?></p>
                     <div class="description-divider"></div>
                     <p>Price: ₱<?php echo $row['current_price']; ?></p>
-                    <form method="post">
+                    <form method="post" onsubmit="return storeScrollPosition()">
                         <input type="hidden" name="product_id" value="<?php echo $row['id']; ?>">
                         <button type="submit" class="add-to-cart-btn" name="add">
                             <i class="fas fa-shopping-cart"></i> Add to Cart
                         </button>
                     </form>
+                    <script>
+                        function storeScrollPosition() {
+                            window.sessionStorage.scrollPos = window.scrollY;
+                            return true; // Allow form submission to proceed
+                        }
+                    </script>
                 </div>
                 <?php
             }
@@ -366,6 +365,8 @@ padding: 20px 0;
             echo "<h4 class='text-center'>No Product Listed Yet</h4>";
         }
         ?>
+    </div>
+</div>
 
 <div class="description-divider"></div>
     </div>
@@ -386,3 +387,14 @@ padding: 20px 0;
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
+
+<script>
+    window.onload = function() {
+        var scrollPos = window.sessionStorage.getItem('scrollPos');
+        if (scrollPos) {
+            window.scrollTo(0, scrollPos);
+            window.sessionStorage.removeItem('scrollPos');
+        }
+    }
+</script>
+
