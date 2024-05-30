@@ -305,9 +305,19 @@ padding: 20px 0;
     </style>
 </head>
 <body>
+<div class="banner-line-text2">
+ 
+ <span></span></div>
 
-
-
+<div class="banner-line-text2">
+ 
+ <span></span></div>
+ <div class="banner-line-text2">
+ 
+ <span></span></div>
+ <div class="banner-line-text2">
+ 
+ <span></span></div>
 <div class="header-text">Welcome to Scholar's Secret</div>
 <div class="quote">"Fuel your learning experience with the best resources."</div>
 
