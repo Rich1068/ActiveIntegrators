@@ -326,7 +326,7 @@ padding: 30px 0;
     <div class="banner-container">
     <div class="banner-text">
         <h1>Thank You For Shopping With Us!</h1>
-        <p>Please Procees to check out and check all items carefuly! Thank You Very Much!</p>
+        <p>Please Proceed to check out and check all items carefuly! Thank You Very Much!</p>
     </div>
     <div class="banner-image"></div>
 </div>
