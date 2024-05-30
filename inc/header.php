@@ -1,4 +1,4 @@
-<?php session_start() ?>
+
 <header id="header" style="background: #1a1a1a; padding: 5px 10px; width:100%">
     <link rel="stylesheet" href="style.css">
     <style>
@@ -112,17 +112,19 @@
                         </div>
                     </div>
                 </a>
-                <a href="cart.php" class="nav-item nav-link">
+                <a href="cart.php" class="nav-item nav-link <?php echo ($currentPage == 'cart') ? 'active' : ''; ?>">
                     <div class="cart-container container-right">
                         <span class="view-cart-text">View My Cart</span>
                         <div class="cart-icon">
                             <i class="fas fa-shopping-cart"></i>
                             <span id="cart_count" class="text-light bg-danger rounded-circle">
                                 <?php
-                                // Display cart count from session
-                                if (isset($_SESSION['cart'])) {
-                                    $cart_count = array_sum($_SESSION['cart']);
-                                    echo $cart_count;
+                                if (isset($_SESSION['cart'])){
+                                    $count = 0;
+                                    foreach($_SESSION['cart'] as $v){
+                                        $count += $v;
+                                    }
+                                    echo $count;
                                 } else {
                                     echo "0";
                                 }

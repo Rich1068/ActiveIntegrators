@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once ('inc/Database.php');
     require_once ('inc/dynamic_elements.php');
 ?>

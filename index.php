@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once ("inc/header.php");
 require_once ('inc/Database.php');
 require_once ('inc/dynamic_elements.php');
@@ -12,15 +13,18 @@ if (isset($_POST['add'])) {
     if (isset($_SESSION['cart'])) {
         if (in_array($_POST['product_id'], array_keys($_SESSION['cart']))) {
             $_SESSION['cart'][$_POST['product_id']] += 1;
+            header('Location: ' . $_SERVER['PHP_SELF']);
         } else {
             $_SESSION['cart'][$_POST['product_id']] = 1;
+            header('Location: ' . $_SERVER['PHP_SELF']);
         }
     } else {
         $_SESSION['cart'][$_POST['product_id']] = 1;
+        header('Location: ' . $_SERVER['PHP_SELF']);
     }
 
     // Redirect to the same page
-    header('Location: ' . $_SERVER['PHP_SELF']);
+    
 }
 ?>
 
@@ -377,6 +381,7 @@ padding: 20px 0;
 </div>
 
 <div class="contact-us">
+    <?php var_dump($_SESSION['cart']); ?>
         Contact Us At <span class="email">skolarsekrets@gmail.com</span>
     </div>
 

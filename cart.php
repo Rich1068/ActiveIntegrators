@@ -1,6 +1,7 @@
 <?php
 require_once("inc/header.php"); 
 require_once("inc/Database.php");
+session_start();
 
 $db = new Database();
 
