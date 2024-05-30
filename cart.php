@@ -260,6 +260,7 @@ button {
     box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.5); 
     border-radius: 20px; 
     overflow: hidden; 
+    margin-top: 150px;
 }
 
 .banner-image {
@@ -335,7 +336,6 @@ padding: 30px 0;
         <div class="row">
             <div class="col-md-12">
                 <div class="text-center">
-                    <H1><BR></H1>
                     <div class="description-divider"></div>
                 </div>
             </div>
