@@ -1,8 +1,6 @@
 <?php
 require_once("inc/header.php"); 
 require_once("inc/Database.php");
-session_start();
-
 $db = new Database();
 
 if (isset($_GET['action']) && $_GET['action'] == 'removeItem') {

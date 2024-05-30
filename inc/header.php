@@ -1,4 +1,14 @@
+<?php session_start(); 
 
+$count = 0;
+if (isset($_SESSION['cart'])) {
+    foreach ($_SESSION['cart'] as $quantity) {
+        $count += $quantity;
+    }
+}
+
+echo json_encode(['count' => $count]);
+?>
 <header id="header" style="background: #1a1a1a; padding: 5px 10px; width:100%">
     <link rel="stylesheet" href="style.css">
     <style>
@@ -119,15 +129,14 @@
                             <i class="fas fa-shopping-cart"></i>
                             <span id="cart_count" class="text-light bg-danger rounded-circle">
                                 <?php
-                                if (isset($_SESSION['cart'])){
-                                    $count = 0;
-                                    foreach($_SESSION['cart'] as $v){
+                                $count = 0;
+                                if (isset($_SESSION['cart'])) {
+                                    foreach ($_SESSION['cart'] as $v) {
                                         $count += $v;
                                     }
-                                    echo $count;
-                                } else {
-                                    echo "0";
                                 }
+                                echo $count;
+                        
                                 ?>
                             </span>
                         </div>

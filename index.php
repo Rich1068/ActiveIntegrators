@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once ("inc/header.php");
 require_once ('inc/Database.php');
 require_once ('inc/dynamic_elements.php');
@@ -9,24 +8,45 @@ require_once ('inc/dynamic_elements.php');
 $database = new Database();
 
 
-if (isset($_POST['add'])) {
-    if (isset($_SESSION['cart'])) {
-        if (in_array($_POST['product_id'], array_keys($_SESSION['cart']))) {
-            $_SESSION['cart'][$_POST['product_id']] += 1;
-            header('Location: ' . $_SERVER['PHP_SELF']);
-        } else {
-            $_SESSION['cart'][$_POST['product_id']] = 1;
-            header('Location: ' . $_SERVER['PHP_SELF']);
-        }
-    } else {
-        $_SESSION['cart'][$_POST['product_id']] = 1;
-        header('Location: ' . $_SERVER['PHP_SELF']);
-    }
+// if (isset($_POST['add'])) {
+//     if (isset($_SESSION['cart'])) {
+//         if (in_array($_POST['product_id'], array_keys($_SESSION['cart']))) {
+//             $_SESSION['cart'][$_POST['product_id']] += 1;
+//             header('Location: index.php');
+//         } else {
+//             $_SESSION['cart'][$_POST['product_id']] = 1;
+//             header('Location: index.php');
+//         }
+//     } else {
+//         $_SESSION['cart'][$_POST['product_id']] = 1;
+//         header('Location: index.php');
+//     }
 
-    // Redirect to the same page
+//     // Redirect to the same page
     
-}
+// }
+    if (isset($_POST['product_id'])) {
+        $product_id = $_POST['product_id'];
+
+        if (!isset($_SESSION['cart'])) {
+            $_SESSION['cart'] = array();
+        }
+
+        if (array_key_exists($product_id, $_SESSION['cart'])) {
+            $_SESSION['cart'][$product_id] += 1;
+        } else {
+            $_SESSION['cart'][$product_id] = 1;
+        }
+
+        echo json_encode(['status' => 'success']);
+        
+    } else {
+        echo json_encode(['status' => 'error', 'message' => 'Product ID not set']);
+
+    }
+    header('Location: index.php');
 ?>
+
 
 <!doctype html>
 <html lang="en">
@@ -91,8 +111,6 @@ if (isset($_POST['add'])) {
     padding: 40px;
 
 }
-
-
 
         .shop-items {
             display: flex;
@@ -172,9 +190,6 @@ if (isset($_POST['add'])) {
             margin-right: 5px;
         }
 
-
-
-
 .banner-container {
     background-color: #1a1a1a; 
     padding: 200px; 
@@ -226,7 +241,6 @@ if (isset($_POST['add'])) {
 }
 
 
-
 .banner-image2 {
     position: absolute;
     top: 0;
@@ -276,7 +290,6 @@ if (isset($_POST['add'])) {
 padding: 20px 0; 
 
 }
-
 
 
 .banner-line-text .fas {
@@ -351,8 +364,8 @@ padding: 20px 0;
     <div class="shop-items">
         <?php
         $result = $database->getData();
-        if($result){
-            while ($row = $result->fetch_assoc()){
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
                 ?>
                 <div class="product-container">
                     <img src="<?php echo $row['img_path']; ?>" alt="<?php echo $row['name']; ?>" class="product-image">
@@ -360,18 +373,12 @@ padding: 20px 0;
                     <p><?php echo $row['description']; ?></p>
                     <div class="description-divider"></div>
                     <p>Price: ₱<?php echo $row['current_price']; ?></p>
-                    <form method="post" onsubmit="return storeScrollPosition()">
+                    <form method="post" class="add-to-cart-form" onsubmit="return storeScrollPosition()">
                         <input type="hidden" name="product_id" value="<?php echo $row['id']; ?>">
-                        <button type="submit" class="add-to-cart-btn" name="add">
+                        <button type="submit" class="add-to-cart-btn" name="add" onclick="location.href = 'index.php';">
                             <i class="fas fa-shopping-cart"></i> Add to Cart
                         </button>
                     </form>
-                    <script>
-                        function storeScrollPosition() {
-                            window.sessionStorage.scrollPos = window.scrollY;
-                            return true; // Allow form submission to proceed
-                        }
-                    </script>
                 </div>
                 <?php
             }
@@ -381,6 +388,39 @@ padding: 20px 0;
         ?>
     </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.add-to-cart-form').forEach(form => {
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            var formData = new FormData(form);
+            fetch('index.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    updateCartCount();
+                }
+            });
+        });
+    });
+});
+
+function updateCartCount() {
+    fetch('header.php')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('cart_count').textContent = data.count;
+        });
+}
+function storeScrollPosition() {
+        window.sessionStorage.scrollPos = window.scrollY;
+        return true; // Allow form submission to proceed
+    }
+</script>
 
 <div class="description-divider"></div>
     </div>
