@@ -131,8 +131,20 @@ padding: 30px 0;
 <body>
 
     <?php require_once("inc/header.php"); ?>
-
     <div class="banner-line-text2">
+ 
+ <span></span></div>
+ <div class="banner-line-text2">
+ 
+ <span></span></div>
+ <div class="banner-line-text2">
+ 
+ <span></span></div>
+ <div class="banner-line-text2">
+ 
+ <span></span></div>
+
+ 
 
     <!-- Main Content -->
     <div class="container">
