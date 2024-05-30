@@ -305,16 +305,6 @@ padding: 20px 0;
     height: 500px; 
 }
 
-.contact-us {
-            font-size: 20px;
-            color: white; 
-            background-color: black; 
-            padding: 10px; 
-        
-        }
-        .contact-us .email {
-            color: yellow; /* Light yellow color for the email */
-        }
     </style>
 </head>
 <body>
@@ -430,10 +420,6 @@ function storeScrollPosition() {
     <div class="bannerbottom"></div>
 </div>
 
-<div class="contact-us">
-    <?php var_dump($_SESSION['cart']); ?>
-        Contact Us At <span class="email">skolarsekrets@gmail.com</span>
-    </div>
 
 
 

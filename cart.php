@@ -195,17 +195,6 @@ button {
     margin-bottom: 20px;
 }
 
-.contact-us {
-    font-size: 20px;
-    color: white;
-    background-color: black;
-    padding: 10px;
-}
-
-.contact-us .email {
-    color: yellow;
-}
-
 .container-divider {
     width: 100%;
     border-bottom: 2px solid #f0e68c;
@@ -435,9 +424,6 @@ padding: 30px 0;
             </div>
         </div>
 
-    </div>
-    <div class="contact-us">
-        Contact Us At <span class="email">skolarsekrets@gmail.com</span>
     </div>
 
 </body>

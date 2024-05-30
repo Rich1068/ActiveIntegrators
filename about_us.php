@@ -185,8 +185,8 @@ padding: 30px 0;
         <div class="info-section">
             <h3>Get in Touch</h3>
             <p>Have questions or suggestions? Feel free to contact us!</p>
-            <p><i class="fas fa-envelope"></i> Email: skolarsekrets@gmail.com</p>
-            <p><i class="fas fa-phone"></i> Phone: +1 (123) 456-7890</p>
+            <p><i class="fas fa-envelope"></i> Email: sia.sy.richarddarwin@gmail.com</p>
+            <p><i class="fas fa-phone"></i> Phone: +63 9772685577</p>
         </div>
         <div class="info-section">
             <h3>Our Team</h3>
