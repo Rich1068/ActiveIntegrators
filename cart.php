@@ -74,140 +74,244 @@ if (isset($_GET['action']) && $_GET['action'] == "update_qty") {
     </script>
 
     <style>
-        body {
-            background: linear-gradient(to bottom, #220132, #d305b2, #d305b2);
-            font-family: "Times New Roman", Times, serif;
-            color: #fff;
-      
-            background-size: cover;
+     body {
+    background-color: #2c2c2c;
+    font-family: "Times New Roman", Times, serif;
+    color: #fff;
+}
+
+.checkout-section form button {
+    margin-top: 20px;
+    
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0px;
+    max-width: 1800px;
+    margin-bottom: 200px; /* Added bottom margin */
+    
+    
+}
+
+.cart-section,
+.checkout-section {
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    margin-bottom: 40px; /* Increased bottom margin */
+    background-color: #5a5a5a;
+    outline: 3px solid rgba(253,253,150,0.5); 
+}
+
+.cart-section {
+    background-color: #5a5a5a;
+    color: #ffffff; /* Updated text color */
+}
+
+.checkout-section {
+    padding: 20px;
+    background: #5a5a5a;
+    color: #ffffff; /* Updated text color */
+    border-radius: 20px;
+    outline: 3px solid rgba(253,253,150,0.5); 
+}
+
+
+.cart-section h2,
+.checkout-section h5 {
+    margin-bottom: 30px; /* Increased bottom margin */
+    
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #5a5a5a;
+    margin-bottom: 30px; 
+    padding: 20px; 
+}
+
+.cart-item:not(:last-child) {
+    border-bottom: 1px solid #f0e68c; /* Updated border color */
+}
+
+.cart-item img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    
+}
+
+.cart-item-details {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.cart-item-details h5 {
+    margin: 0;
+}
+
+.cart-item-details small {
+    color: #666;
+}
+
+.checkout-section .price-details {
+    font-size: 1rem;
+}
+
+.checkout-section .price-details h6 {
+    margin: 10px 0; 
+}
+
+.text-success {
+    color: #28a745;
+}
+
+button {
+    background-color: #FFFF8F; 
+    color: #000000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: "Times New Roman", Times, serif;
+    margin-bottom: 20px; 
+}
+
+
+
+.quantity-controls button {
+    width: 40px;
+    height: 30px;
+    font-size: 18px;
+
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 20px; 
+    margin-right: 10px; 
+    
+}
+
+.minus-button
+{
+    background-color:#FF4949;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 50px;
+    margin-bottom: 30px; 
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+.add-button
+{
+    background-color: #000249;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 50px;
+    margin-bottom: 30px; 
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+.remove-button {
+       color: #000000;
+    padding: 10px;
+    border-radius: 50px;
+    margin-bottom: 30px; 
+
+    margin-left: 11px;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+.contact-us {
+            font-size: 20px;
+            color: white; 
+            background-color: black; 
+            padding: 10px; 
+        
+        }
+        .contact-us .email {
+            color: yellow; 
         }
 
-        .checkout-section form button {
-            margin-top: 20px;
-        }
+        .container-divider {
+    padding-top: 30px;
+    width: 100%;
+    border-bottom: 2px solid #f0e68c; /* Yellow color */
+    margin-bottom: 10px;
+    position: relative;
+}
 
-        .container {
-            width: 100%;
-            margin: 0 auto;
-            padding: 0px;
-            max-width: 1200px;
-            margin-bottom: 200px;
-        }
+.banner-container {
+    background-color: #1a1a1a; 
+    padding: 200px; 
+    max-width: 1800px;
+    margin: 0 auto;
+    position: relative;
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.5); 
+    border-radius: 20px; 
+    overflow: hidden; 
+}
 
-        .cart-section,
-        .checkout-section {
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-            margin-bottom: 20px;
-        }
+.banner-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 20%; /* Covering the whole right side */
+    background-image: url('upload/Banner3.JPG'); /* Image URL from the upload folder */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center right 20%; /* Adjust background position */
+    border-top-right-radius: 20px; /* Apply border-radius */
+}
 
-        .cart-section {
-            background: #fff;
-            color: #000;
-            margin-bottom: 20px;
-        }
+.banner-text {
+    color: #ffff99; /* Light yellow color */
+    font-size: 80px; /* Increase font size */
+    font-family: "Times New Roman", Times, serif; 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    line-height: 1.2; 
+    position: absolute;
+    top: 50%;
+    left: 5%; /* Adjust left position */
+    transform: translateY(-50%);
+}
 
-        .checkout-section {
-            padding: 20px;
-            background: #fff;
-            color: #000;
-        }
+.banner-text h1 {
+    color: white; /* Change h1 color to white */
+    margin-top: 0;
+}
 
-        .cart-section h2,
-        .checkout-section h5 {
-            margin-bottom: 20px;
-        }
+.banner-text p {
+    color: #ffff99;
+    font-size: 24px;
+    font-style: italic;
+}
+.description-divider {
+    padding-top: 40px;
+    width: 100%;
+    border-bottom: 2px solid #f0e68c;
+    position: relative;
+}
 
-        .cart-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: #fff;
-            margin-bottom: 15px;
-            padding: 10px;
-            border-radius: 10px;
-        }
+.banner-line-text2 {
 
-        .cart-item:not(:last-child) {
-            border-bottom: 1px solid #e5e4e2;
-        }
+padding: 30px 0; 
 
-        .cart-item img {
-            border-radius: 50%;
-            width: 80px;
-            height: 80px;
-        }
-
-        .cart-item-details {
-            flex: 1;
-            margin-left: 20px;
-        }
-
-        .cart-item-details h5 {
-            margin: 0;
-        }
-
-        .cart-item-details small {
-            color: #666;
-        }
-
-        .checkout-section .price-details {
-            font-size: 1rem;
-        }
-
-        .checkout-section .price-details h6 {
-            margin: 5px 0;
-        }
-
-        .text-success {
-            color: #28a745;
-        }
-
-        button {
-            background-color: #d305b2;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-family: "Times New Roman", Times, serif;
-        }
-
-        button:hover {
-            background-color: #a3048d;
-        }
-
-        .quantity-controls button {
-            width: 30px;
-            height: 30px;
-            font-size: 18px;
-            color: #fff;
-            cursor: pointer;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 1px;
-            margin: 10px;
-        }
-
-        .minus-button {
-            background-color: #000;
-            border: none;
-        }
-
-        .add-button {
-            background-color: #7393b3;
-            border: none;
-        }
-
-        .remove-button {
-            background-color: #ff6b6b;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            margin: 10px;
-        }
+}
     </style>
 </head>
 
@@ -215,14 +319,28 @@ if (isset($_GET['action']) && $_GET['action'] == "update_qty") {
 
     <?php require_once("inc/header.php"); ?>
 
+    <div class="banner-line-text2">
+ 
+ <span></span></div>
+
+    <div class="banner-container">
+    <div class="banner-text">
+        <h1>Thank You For Shopping With Us!</h1>
+        <p>Please Procees to check out and check all items carefuly! Thank You Very Much!</p>
+    </div>
+    <div class="banner-image"></div>
+</div>
+
+
+    </div>
+
+    
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-12">
                 <div class="text-center">
-                    <h1 class="text-uppercase" style="color: #fff;"><span style="border-bottom: 2px solid #fff;">THANK YOU FOR SHOPPING WITH US</span></h1>
-                    <p class="text-uppercase mt-3" style="color: #fff;">Please Proceed To Check Out!</p>
                     <H1><BR></H1>
-                    <hr class="my-4" style="border-top: 2px solid #fff;">
+                    <div class="description-divider"></div>
                 </div>
             </div>
         </div>
@@ -230,6 +348,7 @@ if (isset($_GET['action']) && $_GET['action'] == "update_qty") {
             <div class="col-md-8">
                 <div class="cart-section">
                     <h2>My Shopping Cart</h2>
+          
                     <hr>
 
                     <?php
@@ -263,53 +382,60 @@ if (isset($_GET['action']) && $_GET['action'] == "update_qty") {
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="checkout-section">
-                    <div class="pt-4">
-                        <h5>Total</h5>
-                        <hr>
-                        <div class="price-details">
-                            <div>
-                                <?php
-                                $total = 0; // Initialize $total variable
-                                if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
-                                    $count = count($_SESSION['cart']);
-                                    echo "<h6>Price ($count items)</h6>";
-                                }
-                                ?>
-                            </div>
-                            <div>
-                                <?php
-                                if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
-                                    foreach ($_SESSION['cart'] as $pid => $quantity) {
-                                        $product = $db->getData([$pid])->fetch_assoc(); // Fetch product data by ID
-                                        if ($product) {
-                                            $total += (floatval($product['current_price']) * intval($quantity));
-                                        }
-                                    }
-                                    echo "<h6>₱" . number_format($total, 2) . "</h6>";
-                                }
-                                ?>
-                                <hr>
-                                <h6>Delivery Charges</h6>
-                                <h6 class="text-success">FREE</h6>
-                                <hr>
-                                <h6>Amount Payable</h6>
-                                <?php
-                                if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
-                                    echo "<h6>₱" . number_format($total, 2) . "</h6>";
-                                }
-                                ?>
-                                <form method="post" action="checkout.php">
-                                    <button <?php if (empty($_SESSION['cart'])) echo "disabled"; ?>>Pay</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+    <div class="checkout-section" style="background-color: #a1a1a; color: #ffffff; border-radius: 20px; padding: 40px; box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); margin-bottom: 40px;">
+        <div class="pt-4">
+            <h5>Total</h5>
+            <hr style="border-color: #f0e68c;">
+            <div class="price-details">
+                <div>
+                    <?php
+                    $total = 0; // Initialize $total variable
+                    if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
+                        $count = count($_SESSION['cart']);
+                        echo "<h6>Price ($count items)</h6>";
+                    }
+                    ?>
                 </div>
+                <div>
+                    <?php
+                    if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
+                        foreach ($_SESSION['cart'] as $pid => $quantity) {
+                            $product = $db->getData([$pid])->fetch_assoc(); // Fetch product data by ID
+                            if ($product) {
+                                $total += (floatval($product['current_price']) * intval($quantity));
+                            }
+                        }
+                        echo "<h6>₱" . number_format($total, 2) . "</h6>";
+                    }
+                    ?>
+                    <hr style="border-color: #f0e68c;"> <!-- Adjust border color to match other container -->
+                    <h6>Delivery Charges</h6>
+                    <h6 class="text-success">FREE</h6>
+                    <hr style="border-color: #f0e68c;"> <!-- Adjust border color to match other container -->
+                    <h6>Amount Payable</h6>
+                    <?php
+                    if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
+                        echo "<h6>₱" . number_format($total, 2) . "</h6>";
+                    }
+                    ?>
+                    <form method="post" action="checkout.php">
+                        <button <?php if (empty($_SESSION['cart'])) echo "disabled"; ?>>Pay</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
             </div>
 
         </div>
+        
     </div>
+    <div class="contact-us">
+        Contact Us At <span class="email">skolarsekrets@gmail.com</span>
+    </div>
+
 </body>
 
 <script>
